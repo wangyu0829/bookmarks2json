@@ -1,0 +1,19 @@
+<% 
+   function Loop(folder){
+%> 
+<%- include header %>
+<DL><p>
+    <% 
+        folder.subfolders.forEach( (folderitem) => {           
+            Loop(folderitem);
+        }); 
+    %>
+<DL><p>
+<% 
+    let links = folder.links;
+    links.forEach((link) => {
+%>
+    <%- include link %>
+<% }); %>
+<% } %>
+<% Loop(folder) %>
